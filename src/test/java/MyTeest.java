@@ -1,5 +1,7 @@
+import api.transaction.TxsItem;
 import com.jayway.jsonpath.JsonPath;
 import imp.MyAddressesImpl;
+import imp.TransactionImpl;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +32,7 @@ public class MyTeest {
     }
 
     @Test
-    public void createNewAddress(){
+    public void createNewAddressTest(){
         JSONObject object = new JSONObject();
         object.put("label",label);
         try {
@@ -39,7 +41,7 @@ public class MyTeest {
             System.out.println(response);
             MyAddressesImpl myAddresses = new MyAddressesImpl();
             List<String> addresses = myAddresses.getAllAddressesLabel(response);
-            assertTrue(addresses.contains(label));
+            assertTrue(addresses.contains(label), String.format("New address is not created with label: %s", label));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -48,7 +50,7 @@ public class MyTeest {
     }
 
     @Test
-    public void validateAddressBalance(){
+    public void validateAddressBalanceTest(){
         MyAddressesImpl myAddresses = new MyAddressesImpl();
         JSONObject response;
         JSONObject object = new JSONObject();
@@ -113,26 +115,16 @@ public class MyTeest {
     }
 
     @Test
-    public void validateGetTransactions(){
+    public void validateGetTransactionsTest(){
+        TransactionImpl transactionImpl = new TransactionImpl();
         JSONObject object = new JSONObject();
         object.put("type","received");
-
-
-
         try {
             JSONObject response = blockLib.GetTransactions(object);
-            System.out.println(response.get("data"));
+            List<TxsItem> getTransaction = transactionImpl.getListTransaction(response);
+            assertTrue(getTransaction.size()!=0, "User is not get response transactions");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-
-//// to pass options:
-//
-//        BlockIo blockLib = new BlockIo(API_KEY, PIN, VERSION, new Options("API URL", "Bool to allow no pin"))
-//
-//
-//
-//// print all addresses on this account
-//        System.out.println(blockLib.GetMyAddresses(null));
 }
