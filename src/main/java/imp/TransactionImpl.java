@@ -40,6 +40,7 @@ public class TransactionImpl implements TransactionServ {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+//        ToDO: Here need to implement some custom wait until the transaction is finished
     }
 
 }

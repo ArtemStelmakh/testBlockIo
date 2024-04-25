@@ -26,4 +26,5 @@ public class TxsItem{
 	private Object propagatedByNodes;
 
 	private List<String> senders;
+
 }
