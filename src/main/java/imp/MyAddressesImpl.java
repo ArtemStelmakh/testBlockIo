@@ -37,4 +37,5 @@ public class MyAddressesImpl implements MyAddressesServ {
         }
         return Double.parseDouble(balance);
     }
+
 }

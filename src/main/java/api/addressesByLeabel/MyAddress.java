@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MyAddress {
+
 	private Data data;
+
 	private String status;
+
 }

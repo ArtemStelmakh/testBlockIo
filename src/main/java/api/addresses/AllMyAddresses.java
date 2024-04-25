@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AllMyAddresses {
+
 	private Data data;
+
 	private String status;
 }

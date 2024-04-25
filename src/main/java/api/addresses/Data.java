@@ -12,9 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Data{
+
 	private List<AddressesItem> addresses;
+
 	private int page;
+
 	@JsonProperty("has_more")
 	private boolean hasMore;
+
 	private String network;
 }

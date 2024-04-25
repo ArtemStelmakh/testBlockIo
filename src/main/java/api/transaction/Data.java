@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Data{
+
 	private List<TxsItem> txs;
+
 	private String network;
+
 }

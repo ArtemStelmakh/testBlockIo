@@ -12,13 +12,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AddressesItem{
 	private String address;
+
 	@JsonProperty("user_id")
 	private int userId;
+
 	@JsonProperty("is_segwit")
 	private boolean isSegwit;
+
 	private String label;
+
 	@JsonProperty("available_balance")
 	private String availableBalance;
+
 	@JsonProperty("pending_received_balance")
 	private String pendingReceivedBalance;
+
 }

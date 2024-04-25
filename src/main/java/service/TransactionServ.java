@@ -5,8 +5,10 @@ import org.json.simple.JSONObject;
 
 import java.util.List;
 
-public interface TransactionSer {
+public interface TransactionServ {
 
 
     List<TxsItem> getListTransaction(JSONObject jsonObject);
+
+    String getStatusTransaction(JSONObject jsonObject);
  }

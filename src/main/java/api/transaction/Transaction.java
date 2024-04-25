@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transaction{
+
 	private Data data;
+
 	private String status;
+
 }
